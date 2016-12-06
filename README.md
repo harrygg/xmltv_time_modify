@@ -7,6 +7,7 @@ Unlike the xmltv_time_correct which halts and waits for the user to press any ke
 .\xmltv_time_modify.exe [input_epg_file] [output_epg_file] [custom_configuration_file]
 
 # Sample configration file:
+```xml
 <channels>
   <!--
   This file specifies the channels to be 'time' corrected by xmltv_time_correct.exe
@@ -20,3 +21,4 @@ Unlike the xmltv_time_correct which halts and waits for the user to press any ke
   -->
   <channel time_error="+2">Sky Sports 1</channel>
 </channels>
+```
