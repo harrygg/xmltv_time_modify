@@ -37,13 +37,13 @@ namespace xmltv_time_modify
         return;
       }
       var chanenlsToCorrect = LoadChannelsToCorrect(configXml);
-      Dictionary<String, int> channelsNotCorrected = chanenlsToCorrect;
+      Dictionary<String, Double> channelsNotCorrected = chanenlsToCorrect;
 
       
 
       XDocument xmlFile = XDocument.Load(inputXml);
       var programmes = from c in xmlFile.Elements("tv").Elements("programme") select c;
-      var offset = 0;
+      Double offset = 0;
       var channel_id = String.Empty;
       var cOutput = "";
 
@@ -82,16 +82,16 @@ namespace xmltv_time_modify
       foreach (var k in channelsNotCorrected.Keys)
         Console.WriteLine(k);
 
-      //Console.ReadKey();
+      Console.ReadKey();
     }
 
-    static void TimeCorrect(ref string dateTime, int correction)
+    static void TimeCorrect(ref String dateTime, Double correction)
     {
       try
       {
         var dateTimeSplit = dateTime.Split(' ');
         DateTime dDateTime = DateTime.ParseExact(dateTimeSplit[0], "yyyyMMddHHmmss", null);
-        dDateTime = dDateTime.AddHours(Convert.ToDouble(correction));
+        dDateTime = dDateTime.AddHours(correction);
         dateTime = dDateTime.ToString("yyyyMMddHHmmss") + " " + dateTimeSplit[1];
       }
       catch (Exception ex)
@@ -99,9 +99,9 @@ namespace xmltv_time_modify
         Console.WriteLine("Error {0}", ex.ToString());
       }
     }
-    static Dictionary<String, int> LoadChannelsToCorrect(String configXml)
+    static Dictionary<String, Double> LoadChannelsToCorrect(String configXml)
     {
-      var dict = new Dictionary<String, int>();
+      var dict = new Dictionary<String, Double>();
       try
       {
         XmlDocument doc = new XmlDocument();
@@ -112,7 +112,7 @@ namespace xmltv_time_modify
           if (childNode.Name.Equals("channel"))
           {
             var channelName = childNode.InnerText;
-            dict.Add(channelName, Convert.ToInt16(childNode.Attributes["time_error"].Value));
+            dict.Add(channelName, Convert.ToDouble(childNode.Attributes["time_error"].Value));
           }
         }
       }
