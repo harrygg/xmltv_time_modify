@@ -1,7 +1,7 @@
 # xmltv_time_modify
 A simple program to modify start and end times in XMLTV guide. Does the same thing as the xmltv_time_correct from WebGrab++ website and uses its configuration files.
 If a programme for a channel is not found an error message is logged in the console and the program continues with the next channel. 
-Unlike the xmltv_time_correct which halts and waits for the user to press any key (not good for automatcion).
+Unlike the xmltv_time_correct which halts and waits for the user to press any key (not good for automation).
 
 # Usage:
 .\xmltv_time_modify.exe [input_epg_file] [output_epg_file] [custom_configuration_file]
