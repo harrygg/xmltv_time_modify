@@ -17,7 +17,7 @@ namespace xmltv_time_modify
     {
       // Get input XMLTV file
       inputXml = (args.Length > 1) ? args[0] : inputXml;
-      System.Console.WriteLine("Input EPG file: {0}", inputXml);
+      Console.WriteLine("Input EPG file: {0}", inputXml);
       if (!File.Exists(inputXml))
       {
         Console.WriteLine("File {0} not found! Exiting!", inputXml);
@@ -82,7 +82,7 @@ namespace xmltv_time_modify
       foreach (var k in channelsNotCorrected.Keys)
         Console.WriteLine(k);
 
-      Console.ReadKey();
+      //Console.ReadKey();
     }
 
     static void TimeCorrect(ref String dateTime, Double correction)
