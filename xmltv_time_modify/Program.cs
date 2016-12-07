@@ -24,11 +24,11 @@ namespace xmltv_time_modify
         return;
       }
 
-      outputXml = (args.Length > 2) ? args[1] : outputXml;
+      outputXml = (args.Length >= 2) ? args[1] : outputXml;
       Console.WriteLine("Output EPG file: {0}", outputXml);
 
       // Get configuration XML file
-      configXml = (args.Length > 3) ? args[2] : configXml;
+      configXml = (args.Length >= 3) ? args[2] : configXml;
       Console.WriteLine("Using config file: {0}", configXml);
       if (!File.Exists(configXml))
       {
