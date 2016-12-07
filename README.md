@@ -4,7 +4,16 @@ If a programme for a channel is not found an error message is logged in the cons
 Unlike the xmltv_time_correct which halts and waits for the user to press any key (not good for automation).
 
 # Usage:
+The program requires .NET 4.5 to be installed on the machine.
+
 .\xmltv_time_modify.exe [input_epg_file] [output_epg_file] [custom_configuration_file]
+Examples:
+Started without arguments, the program will use default values. epg.xml as input file, epg_time_modified.xml as output file and chans2correct.xml as configuration file. epg.xml and chans2correct.xml must exist in the working folder.
+.\xmltv_time_modify.exe
+
+Started with custom arguments, input file is epg_temp.xml, output file is epg.xml, channels_to_correct.xml as config file.
+.\xmltv_time_modify.exe epg_temp.xml epg.xml channels_to_correct.xml
+
 
 # Sample configration file:
 ```xml
